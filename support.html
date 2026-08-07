@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support — Vinyl Wallpaper</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+            background: #0a0a0a; color: #e0e0e0; line-height: 1.7;
+            -webkit-font-smoothing: antialiased; margin: 0; padding: 0;
+        }
+        .container { max-width: 720px; margin: 0 auto; padding: 80px 32px; }
+        h1 { font-size: 32px; font-weight: 700; margin-bottom: 8px; color: #fff; }
+        .subtitle { color: #777; font-size: 16px; margin-bottom: 40px; }
+        h2 { font-size: 20px; font-weight: 600; color: #fff; margin-top: 40px; margin-bottom: 12px; }
+        p, li { color: #bbb; font-size: 15px; }
+        ul { padding-left: 20px; }
+        a { color: #8b5cf6; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .back { display: inline-block; margin-bottom: 32px; font-size: 14px; }
+        .email-btn {
+            display: inline-block; margin-top: 16px;
+            padding: 14px 28px; border-radius: 10px;
+            background: #8b5cf6; color: #fff; font-weight: 600;
+            text-decoration: none; transition: background 0.2s;
+        }
+        .email-btn:hover { background: #7c3aed; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back">&larr; Back to Vinyl Wallpaper</a>
+        <h1>Support</h1>
+        <p class="subtitle">We're here to help.</p>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h2>Why isn't Vinyl Wallpaper showing my track?</h2>
+        <p>Make sure your audio source is correctly selected. For Spotify, the Spotify desktop app must be running. For WiiM, your device must be on the same Wi-Fi network and reachable. For Apple Music and AirPlay, you may need to grant Vinyl Wallpaper Automation permission in <strong>System Settings &rarr; Privacy &amp; Security &rarr; Automation</strong>.</p>
+
+        <h2>The artwork doesn't match the album I'm listening to.</h2>
+        <p>Vinyl Wallpaper fetches artwork from the iTunes Search API and Spotify's oEmbed service. For tracks that appear on multiple albums &mdash; especially in classical music &mdash; the API may return the most common release's artwork. This is expected behaviour.</p>
+
+        <h2>How do I grant the required permissions?</h2>
+        <p>Vinyl Wallpaper needs a few macOS permissions to work:</p>
+        <ul>
+            <li><strong>Automation</strong> &mdash; Go to System Settings &rarr; Privacy &amp; Security &rarr; Automation and enable Vinyl Wallpaper for Spotify and Music.</li>
+            <li><strong>Audio Input</strong> &mdash; Required for the VU meter animation on the turntable wallpaper. Grant when prompted.</li>
+            <li><strong>Local Network</strong> &mdash; Required to discover WiiM and AirPlay devices. Grant when prompted.</li>
+        </ul>
+
+        <h2>Contact Us</h2>
+        <p>If you still need help, send us an email. We typically respond within 24 hours.</p>
+        <a href="mailto:apps@maadotaa.com?subject=Need%20help%20with%20Vinyl%20Wallpaper" class="email-btn">Email Support</a>
+    </div>
+</body>
+</html>
