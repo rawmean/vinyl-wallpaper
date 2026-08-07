@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — Vinyl Wallpaper</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+            background: #0a0a0a; color: #e0e0e0; line-height: 1.7;
+            -webkit-font-smoothing: antialiased; margin: 0; padding: 0;
+        }
+        .container { max-width: 720px; margin: 0 auto; padding: 80px 32px; }
+        h1 { font-size: 32px; font-weight: 700; margin-bottom: 8px; color: #fff; }
+        .date { color: #777; font-size: 14px; margin-bottom: 40px; }
+        h2 { font-size: 20px; font-weight: 600; color: #fff; margin-top: 40px; margin-bottom: 12px; }
+        p, li { color: #bbb; font-size: 15px; }
+        ul { padding-left: 20px; }
+        a { color: #8b5cf6; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .back { display: inline-block; margin-bottom: 32px; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back">&larr; Back to Vinyl Wallpaper</a>
+        <h1>Privacy Policy</h1>
+        <p class="date">Last updated: August 2026</p>
+
+        <h2>Data Collection</h2>
+        <p>Vinyl Wallpaper does <strong>not</strong> collect, store, or transmit any personal data. There are no analytics frameworks, no third-party trackers, and no telemetry.</p>
+
+        <h2>How Vinyl Wallpaper Works</h2>
+        <p>All processing happens entirely on your Mac:</p>
+        <ul>
+            <li><strong>Spotify integration</strong> &mdash; Vinyl Wallpaper reads your current track from the Spotify desktop app using AppleScript. This information never leaves your computer.</li>
+            <li><strong>WiiM integration</strong> &mdash; Vinyl Wallpaper discovers WiiM devices on your local network and queries their playback status. All communication stays within your home network.</li>
+            <li><strong>AirPlay &amp; Apple Music</strong> &mdash; Vinyl Wallpaper reads playback state from the Music app using AppleScript. No data is shared externally.</li>
+            <li><strong>Artwork fetching</strong> &mdash; Album artwork is fetched directly from public APIs (Spotify oEmbed, iTunes Search) to display on your desktop. Vinyl Wallpaper does not track which artwork is fetched.</li>
+        </ul>
+
+        <h2>Permissions</h2>
+        <p>Vinyl Wallpaper requests the following macOS permissions for core functionality:</p>
+        <ul>
+            <li><strong>Automation</strong> &mdash; To read the current track from Spotify and Music.app.</li>
+            <li><strong>Audio Input</strong> &mdash; To capture audio levels for the VU meter animation on the turntable wallpaper.</li>
+            <li><strong>Local Network</strong> &mdash; To discover WiiM devices and AirPlay speakers on your network.</li>
+        </ul>
+        <p>None of these permissions are used to collect or transmit data outside your device.</p>
+
+        <h2>Third-Party Services</h2>
+        <p>Vinyl Wallpaper makes requests to the following public APIs solely to fetch album artwork:</p>
+        <ul>
+            <li>Spotify oEmbed API (<code>open.spotify.com/oembed</code>)</li>
+            <li>iTunes Search API (<code>itunes.apple.com/search</code>)</li>
+        </ul>
+        <p>These requests do not include any personal information or authentication credentials.</p>
+
+        <h2>Contact</h2>
+        <p>If you have questions about privacy, contact us at <a href="mailto:apps@maadotaa.com">apps@maadotaa.com</a>.</p>
+    </div>
+</body>
+</html>

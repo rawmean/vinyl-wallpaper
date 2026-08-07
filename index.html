@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinyl Wallpaper — Album Artwork for Your Desktop</title>
+    <meta name="description" content="Vinyl Wallpaper turns your desktop into a living album cover. Connect Spotify, WiiM, or AirPlay and watch every track come alive as a beautiful animated wallpaper and notch player.">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+            background: #0a0a0a;
+            color: #f0f0f0;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(10,10,10,0.85); backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        nav .container {
+            display: flex; align-items: center; justify-content: space-between;
+            height: 56px;
+        }
+        nav .logo {
+            display: flex; align-items: center; gap: 10px;
+            font-weight: 600; font-size: 18px; color: #fff; text-decoration: none;
+        }
+        nav .logo img { width: 28px; height: 28px; border-radius: 6px; }
+        nav .links { display: flex; gap: 28px; }
+        nav .links a { color: #aaa; text-decoration: none; font-size: 14px; transition: color 0.2s; }
+        nav .links a:hover { color: #fff; }
+        .hero {
+            padding: 140px 0 80px; text-align: center;
+            background: radial-gradient(ellipse at 50% 0%, rgba(255,120,50,0.12) 0%, transparent 60%),
+                        radial-gradient(ellipse at 80% 20%, rgba(100,60,180,0.08) 0%, transparent 50%);
+        }
+        .hero h1 { font-size: 52px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 16px; }
+        .hero .gradient-text {
+            background: linear-gradient(135deg, #f97316, #ec4899, #8b5cf6);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero p { font-size: 20px; color: #999; max-width: 640px; margin: 0 auto 36px; }
+        .hero-image {
+            max-width: 900px; margin: 40px auto -40px;
+            border-radius: 16px; overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08);
+        }
+        .hero-image img { width: 100%; display: block; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 14px 32px; border-radius: 12px;
+            font-size: 16px; font-weight: 600; text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-primary { background: #fff; color: #0a0a0a; }
+        .btn-primary:hover { background: #e5e5e5; transform: translateY(-1px); }
+        .section { padding: 100px 0; }
+        .section h2 {
+            font-size: 36px; font-weight: 700; letter-spacing: -0.3px;
+            margin-bottom: 16px; text-align: center;
+        }
+        .section .subtitle { text-align: center; color: #888; font-size: 18px; margin-bottom: 56px; }
+        .features-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+        }
+        .feature-card {
+            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px; padding: 32px; transition: border-color 0.2s;
+        }
+        .feature-card:hover { border-color: rgba(255,255,255,0.18); }
+        .feature-card .icon { font-size: 32px; margin-bottom: 20px; }
+        .feature-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+        .feature-card p { color: #888; font-size: 15px; }
+        .screenshots {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+        }
+        .screenshots img {
+            width: 100%; border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: transform 0.3s;
+        }
+        .screenshots img:hover { transform: scale(1.02); }
+        .sources {
+            display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;
+        }
+        .source-item {
+            text-align: center; padding: 28px 40px;
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+        }
+        .source-item .source-icon { font-size: 28px; margin-bottom: 12px; }
+        .source-item h4 { font-size: 16px; font-weight: 600; }
+        .source-item p { color: #777; font-size: 13px; margin-top: 4px; }
+        .cta {
+            text-align: center; padding: 100px 0;
+            background: radial-gradient(ellipse at 50% 100%, rgba(139,92,246,0.10) 0%, transparent 60%);
+        }
+        .cta p { color: #888; margin-top: 16px; font-size: 14px; }
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 32px 0; text-align: center;
+        }
+        footer .container {
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 16px;
+        }
+        footer, footer a { color: #666; font-size: 13px; text-decoration: none; }
+        footer a:hover { color: #aaa; }
+        footer .footer-links { display: flex; gap: 24px; }
+        .supported { text-align: center; padding: 0 0 80px; }
+        .supported .badge-row { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+        .supported .badge {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 8px 16px; border-radius: 100px;
+            background: rgba(255,255,255,0.05); font-size: 14px; color: #ccc;
+        }
+        .supported .badge .dot { width: 6px; height: 6px; border-radius: 50%; }
+        .dot-green { background: #22c55e; }
+        .dot-blue { background: #3b82f6; }
+        .dot-teal { background: #14b8a6; }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 36px; }
+            .features-grid, .screenshots { grid-template-columns: 1fr; }
+            footer .container { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">
+                <img src="favicon.png" alt="Vinyl Wallpaper"> Vinyl Wallpaper
+            </a>
+            <div class="links">
+                <a href="#features">Features</a>
+                <a href="#screenshots">Screenshots</a>
+                <a href="#sources">Sources</a>
+                <a href="privacy.html">Privacy</a>
+                <a href="mailto:apps@maadotaa.com?subject=Need%20help%20with%20Vinyl%20Wallpaper">Support</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Your Desktop, <br><span class="gradient-text">Set to Music.</span></h1>
+            <p>Vinyl Wallpaper transforms your Mac desktop into a stunning animated album cover &mdash; complete with a turntable, spinning record, and live progress. Works with Spotify, WiiM, and AirPlay.</p>
+            <a href="https://apps.apple.com/app/vinyl-wallpaper/idXXXXXXXXX" class="btn btn-primary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                Download from the App&nbsp;Store
+            </a>
+            <div class="hero-image">
+                <img src="hero.png" alt="Vinyl Wallpaper — Desktop turntable with album artwork">
+            </div>
+        </div>
+    </section>
+
+    <section class="supported">
+        <div class="container">
+            <div class="badge-row">
+                <span class="badge"><span class="dot dot-green"></span> Spotify</span>
+                <span class="badge"><span class="dot dot-blue"></span> WiiM</span>
+                <span class="badge"><span class="dot dot-teal"></span> AirPlay</span>
+                <span class="badge">Apple Music</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="features">
+        <div class="container">
+            <h2>What Vinyl Wallpaper Does</h2>
+            <p class="subtitle">Your music deserves more than a menu bar widget.</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon">&#x1F3B5;</div>
+                    <h3>Desktop Artwork</h3>
+                    <p>Full-screen animated wallpaper showing the current album art on a beautiful turntable with a spinning record, tonearm, and VU meters &mdash; across all your displays.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">&#x1F4BB;</div>
+                    <h3>Notch Player</h3>
+                    <p>A sleek, collapsible player that lives in your MacBook's notch. See the current track, artwork, and controls at a glance without leaving your workflow.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">&#x1F3A7;</div>
+                    <h3>Multi-Source</h3>
+                    <p>Works with Spotify, WiiM streamers, Apple Music, and AirPlay. Switch between sources with one click. Vinyl Wallpaper auto-detects what's playing.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">&#x1F39B;&#xFE0F;</div>
+                    <h3>Multiple Visual Setups</h3>
+                    <p>Choose from album canvas, classic turntable deck, floating vinyl, listening room, Side A label, and After Dark &mdash; each with its own personality.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">&#x23F1;&#xFE0F;</div>
+                    <h3>Live Progress &amp; Controls</h3>
+                    <p>Track progress bar, play/pause, skip, and volume control &mdash; all accessible from the wallpaper overlay and the notch player.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">&#x1F510;</div>
+                    <h3>Private by Design</h3>
+                    <p>Everything runs locally on your Mac. No data is ever sent to external servers. Your listening habits stay yours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="screenshots">
+        <div class="container">
+            <h2>See It in Action</h2>
+            <p class="subtitle">From turntable to notch, every detail is crafted.</p>
+            <div class="screenshots">
+                <img src="screenshots/turntable-wallpaper.png" alt="Vinyl Wallpaper Turntable" loading="lazy">
+                <img src="screenshots/album-canvas.png" alt="Vinyl Wallpaper Album Canvas" loading="lazy">
+                <img src="screenshots/notch-expanded.png" alt="Vinyl Wallpaper Notch Player Expanded" loading="lazy">
+                <img src="screenshots/settings-window.png" alt="Vinyl Wallpaper Settings" loading="lazy">
+                <img src="screenshots/desktop-artwork.png" alt="Vinyl Wallpaper Desktop Artwork" loading="lazy">
+                <img src="screenshots/notch-compact.png" alt="Vinyl Wallpaper Notch Player Compact" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="sources">
+        <div class="container">
+            <h2>Connect Your Music</h2>
+            <p class="subtitle">Vinyl Wallpaper works with the services you already use.</p>
+            <div class="sources">
+                <div class="source-item">
+                    <div class="source-icon" style="color:#1db954;">&#x266B;</div>
+                    <h4>Spotify</h4>
+                    <p>Direct integration via the<br>Spotify desktop app</p>
+                </div>
+                <div class="source-item">
+                    <div class="source-icon" style="color:#3b82f6;">&#x1F509;</div>
+                    <h4>WiiM</h4>
+                    <p>Auto-discovers WiiM devices<br>on your network</p>
+                </div>
+                <div class="source-item">
+                    <div class="source-icon" style="color:#14b8a6;">&#x25B6;</div>
+                    <h4>AirPlay</h4>
+                    <p>Auto-detects Apple Music<br>and Spotify playback</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Bring Your Music to Life</h2>
+            <a href="https://apps.apple.com/app/vinyl-wallpaper/idXXXXXXXXX" class="btn btn-primary" style="margin-top:28px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                Download from the App&nbsp;Store
+            </a>
+            <p>For macOS. Requires macOS 14 or later.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <span>&copy; 2026 Vinyl Wallpaper. All rights reserved.</span>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="mailto:apps@maadotaa.com?subject=Need%20help%20with%20Vinyl%20Wallpaper">Support</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
